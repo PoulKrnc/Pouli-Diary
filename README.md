@@ -1,3 +1,3 @@
-# ai_diary
+# ai_diary -> AIDiary
 
-A new Flutter project.
+Flutter project for android application that writes diary like a story using Gemini AI.
