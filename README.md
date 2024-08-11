@@ -1,4 +1,4 @@
-# ai_diary -> AIDiary
+# PouliDiary
 
 Flutter project for android application that writes diary like a story using Gemini AI.
 
