@@ -34,7 +34,12 @@ class _GeneratePageState extends State<GeneratePage> {
 
   void generatePrompt() async {
     String prompt =
-        "From this draft, write the text for one day in ${widget.person}'s diary on ${widget.date.toString()}: '${widget.prompt}'. Write it base on his/hers personality which is: '${personData["personality"]}'. Compose the text as a part of the story where story is a whole diary together and DO NOT split the text by hours ";
+        """From this draft, write the text for one day in ${widget.person}'s 
+diary on ${widget.date.toString()}: "${widget.prompt}". Write it based 
+on his/hers personality which is: '${personData["personality"]}'. 
+Compose the text as a part of the story where story is a whole diary 
+together and DO NOT split the text by hours. Write ONLY about what 
+person wrote. DO NOT make up things that person did not mention. """;
     log(prompt);
     try {
       gemini.streamGenerateContent(prompt).listen((value) {

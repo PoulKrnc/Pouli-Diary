@@ -36,6 +36,7 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       scaffoldMessengerKey: messengerKey,
       theme: ThemeData(
           useMaterial3: true,

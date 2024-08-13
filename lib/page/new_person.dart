@@ -66,66 +66,87 @@ class _NewPersonState extends State<NewPerson> {
                 const SizedBox(
                   height: 20,
                 ),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).focusColor,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: PopupMenuButton(
-                      child: Column(
-                        children: [
-                          const Text(
-                            "Choose your personality",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 16),
-                          ),
-                          if (choosenPeronality == -1)
-                            ...[]
-                          else ...[
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                    flex: 2,
-                                    child: Text(
-                                      personalityTraits[choosenPeronality],
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .titleLarge!
-                                          .copyWith(
-                                              color: Theme.of(context)
-                                                  .primaryColor),
-                                      textAlign: TextAlign.start,
-                                    )),
-                                Expanded(
-                                    flex: 5,
-                                    child: Text(
-                                      personalityDescriptions[
-                                          choosenPeronality],
-                                      style:
-                                          Theme.of(context).textTheme.bodyLarge,
-                                      textAlign: TextAlign.justify,
-                                    ))
-                              ],
-                            )
-                          ]
-                        ],
-                      ),
-                      itemBuilder: (context) {
-                        return [
-                          for (String personality in personalityTraits) ...[
-                            PopupMenuItem(
-                                onTap: () {
-                                  setState(() {
-                                    choosenPeronality =
-                                        personalityTraits.indexOf(personality);
-                                  });
-                                },
-                                child: Text(personality))
-                          ]
-                        ];
-                      }),
+                PopupMenuButton(
+                  itemBuilder: (context) {
+                    return [
+                      for (String personality in personalityTraits) ...[
+                        PopupMenuItem(
+                            onTap: () {
+                              setState(() {
+                                choosenPeronality =
+                                    personalityTraits.indexOf(personality);
+                              });
+                            },
+                            child: Text(personality))
+                      ]
+                    ];
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(20, 7, 20, 7),
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).focusColor,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Column(
+                      children: [
+                        const Text(
+                          "Choose your personality",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 16),
+                        ),
+                        if (choosenPeronality == -1)
+                          ...[]
+                        else ...[
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                  flex: 2,
+                                  child: Text(
+                                    personalityTraits[choosenPeronality],
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleLarge!
+                                        .copyWith(
+                                            color:
+                                                Theme.of(context).primaryColor),
+                                    textAlign: TextAlign.start,
+                                  )),
+                              Expanded(
+                                  flex: 5,
+                                  child: Text(
+                                    personalityDescriptions[choosenPeronality],
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge,
+                                    textAlign: TextAlign.justify,
+                                  ))
+                            ],
+                          )
+                        ]
+                      ],
+                    ),
+                  ),
                 ),
+                /*const SizedBox(
+                  height: 10,
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    padding: const EdgeInsets.fromLTRB(20, 7, 20, 7),
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).focusColor,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Column(
+                      children: [
+                        const Text(
+                          "Write some facts about yourself",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 16),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),*/
                 const SizedBox(
                   height: 20,
                 ),
